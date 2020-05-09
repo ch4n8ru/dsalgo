@@ -24,6 +24,10 @@
 
 */
 
+
+
+/* IMPLENENTATION 
+IN NOTES */
 function longestSubsStr(str) {
     /* 
     Create variables for window width
@@ -33,7 +37,8 @@ function longestSubsStr(str) {
 
     /* Create initial substring and lookup object */
     let maxLen = 0;
-    let lookUp = {};
+    let lookUp = { };
+    
    
 
     // console.log(lookUp);
@@ -42,32 +47,63 @@ function longestSubsStr(str) {
        add a new character if it is not unique remove the first item and change in the lookup 
        if it is unique grow the window and change in the lookup
     */
-   let nextChar
     while (windowEnd < str.length){
-        
-        // console.log(nextChar);/
-        // console.log(lookUp);
-        nextChar = str[windowEnd]
-        if(lookUp[nextChar] > 1){
-            console.log(nextChar + ' dup');
-            lookUp[str[windowStart]] -= 1
+        if(lookUp[str[windowEnd]]){
+            // duplicate found shreink
+            --lookUp[str[windowStart]]
             ++windowStart;
-
-            
         }
         else{
-            
+            // not duplicate
+            /* If it enters thi block then it is understood that thr subarray does not have duplicates */
+            maxLen = Math.max(maxLen , windowEnd - windowStart + 1)
+            if(str[windowEnd])
+                lookUp[str[windowEnd]] = ++lookUp[str[windowEnd]] || 1;
             ++windowEnd;
-            // if(str[windowEnd + 1])
-           
-            nextChar
-            lookUp[nextChar] = ++lookUp[nextChar] ||   1;
+            
         }
-    
-
     }
-
+    // console.log(lookUp)
+    return maxLen
 }
 
-let res;
-res = longestSubsStr('rithmschool')
+
+
+/* IMPLEMENTATION 2 */
+
+/* JUMP ANCHORS AS STRINGS HAVE BREAK POINTS WHERE UNIQUENESS ENDS */
+
+function maxLenSub(str){
+let anchor = 0;
+let seen = {};      //stores the index of the next anchor
+let maxLen = 0;
+for(let i = 0; i< str.length; i++){
+    let currChar = str[i];
+
+    if(seen[currChar]){
+        // Duolicate shift anchor
+        anchor = Math.max(anchor , seen[currChar])
+    }
+
+    /* Not duplicate mark length */
+    console.log(anchor , i)
+    maxLen = Math.max(maxLen , i - anchor + 1);
+
+    seen[currChar] = i + 1;  /* Stores the index of the next element so the aanchor can jump there */
+}
+
+return maxLen
+}
+
+
+
+
+
+// let res;
+// res = longestSubsStr('rithmschool')
+// res = longestSubsStr('')
+// console.log(res);
+
+
+let len = maxLenSub('thisisawesome')
+console.log(len);
