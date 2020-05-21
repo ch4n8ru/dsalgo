@@ -9,19 +9,16 @@ MOST EFFICIENT WHEN THE ARRAY IS NEARLY SORTED
 function bubbleSort(arr) {
     let noSwap;
     let len = arr.length;
-    for (let i = 0; i < len; i++) {
+    for(let i = len - 1 ; i > 0; i-- ){
         noSwap = true
-        // console.log(arr,arr[i],arr[i+1])
-        if (arr[i] > arr[i + 1]) {
-            swap(arr , i , i+1);
-            noSwap = false
+        for(let j = 0; j < len  - 1; j++){
+            if(arr[j] > arr[j+1])   {
+                swap(arr, j , j+1)
+                noSwap = false
+            }
+
         }
-        if ((i == len - 1) && len > 0) {
-            i = -1;
-            len--;
-            
-        }
-        // if(noSwap) break
+        if(noSwap) break
     }
     return arr
 }
