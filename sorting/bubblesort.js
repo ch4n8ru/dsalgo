@@ -10,6 +10,8 @@ function bubbleSort(arr) {
     let noSwap;
     let len = arr.length;
     for(let i = len - 1 ; i > 0; i-- ){
+        /* for loop for for counting passes */
+        /* i value shrinks as the last item at each pass is the largest */
         noSwap = true
         for(let j = 0; j < len  - 1; j++){
             if(arr[j] > arr[j+1])   {
