@@ -215,7 +215,7 @@ list.push(1)
 /* Big O for some operations
 OP         SLL                                                                 ARRAY
 insertion  O(1) for start or end O(n) for inserting in middle                  O(n)
-removal    O(n)                                                                O(n) reindex the remaining elements after removing from middle
+removal    O(n)  **removal from the first is less costly                       O(n) reindex the remaining elements after removing from middle
 search     O(n)                                                                O(logn) for binary search
 access     O(n)                                                                O(1)
 

@@ -1,0 +1,16 @@
+A data structure with a single root
+
+root ==> starting node
+leaf ==> node without children
+
+BINARY TREES:
+ Special type of tree where Each node has atmost 2 children
+
+BINARY SEARCH TREE:
+Special type of binary trees;
+Best for trees;
+
+from the root all the numbers smaller to it is located to root's left;
+and every node to the right is greater than the root
+
+BST's performance suffer when the tree is one sided hence balancing is needed
