@@ -14,3 +14,17 @@ from the root all the numbers smaller to it is located to root's left;
 and every node to the right is greater than the root
 
 BST's performance suffer when the tree is one sided hence balancing is needed
+
+BFS vs DFS
+For a wide tree BFS consumes more memory as it has a queue that store all the nodes it has to visit ==> use DFS
+For deep trees use BFS as the number of nodes in the queue is less
+
+
+USE INORDER:
+Get the nodes in the underlying order
+
+USE PREORDER:
+Clone or flatten a tree
+
+
+
