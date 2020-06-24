@@ -1,0 +1,14 @@
+In Max Binary heap:
+The parent must be larger than the child
+
+In Min Binary heap:
+The parent must be smaller than the child
+
+It has no relationship like BST ie(no ordering among siblings other than that they are smaller than the parent for Max Heap)
+
+Relationship between the parent and child nodes
+
+For any given parent node with index n its child nodes are index
+        (2n+1) , (2n+2) 
+For any given child with index n its parent is 
+        floor((n-1)/2)
