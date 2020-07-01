@@ -1,0 +1,25 @@
+Collections of nodes and connections(vertices)
+
+No entry or exit points and multiple paths to reach point a from b
+
+Tree is a special type of graph where only one path exists between two nodes
+
+Terminology
+
+Vertex : refers to a node
+
+Edge : connections between vertices
+
+Directed graph: the edges have a direction (One way relationship)
+
+Undirected graph:NO directions on the edge (Two way relationship)
+
+Weighted : A value is assigned to each edge
+
+Unweighted : No weights all edges are the same
+
+Two approach for programatically storing a graph  
+ADJACENCY LIST &&
+ADJACENCY MATRIX 
+
+

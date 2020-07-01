@@ -65,7 +65,6 @@ function dfsPostOrder(tree){
     let visited = [];
     let stack = [];
     stack.push(tree.root);
-
     function traverse(root){
         if(root.left) traverse(root.left)
         if(root.right) traverse(root.right)
@@ -99,6 +98,7 @@ function dfsPreOrder(tree){
     traverse(tree.root)
     return visited
 }
+
 
 
 
