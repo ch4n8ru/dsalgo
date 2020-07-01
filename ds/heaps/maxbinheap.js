@@ -1,3 +1,7 @@
+
+/* Best at insertiion and removal */
+
+
 class MaxBinaryHeap{
     constructor(){
         this.values = []
@@ -42,6 +46,35 @@ class MaxBinaryHeap{
                 parentIdx = Math.floor((idx-1)/2)
         }
     }
+
+    /* Extract max 
+        return the max node which happens to be the root node in maxbinheap
+
+        [41,39,33,18,27,12] initially copy the last leaf to index 0 and pop the last element (pop the root)
+        let max = heap[0]
+        heap[0] = heap[heap.len-1]
+        heap.pop()
+
+        [12,39,33,18,27] now we have to sink down 12
+
+        pseudocode for sink:
+        compare the node with its child 
+            if it has both swap 
+                and both are larger then swap with the largest child
+            else ignore
+            if it has leftchild
+                and is greater than parent swap
+            if it has rightchild
+                and is greater than parent swap
+
+        implementation:
+        [12,39,33,18,27] ==> 12's children are 39 , 33 => largest is 39 hence swap;and swap parentIdx
+
+        [39,12,33,18,27]  ==> 12's children are 18 , 27 => largest is 27 hence swap
+
+        [39,27,33,18,12]` ==>> 12 has no children hence break
+
+    */
 
     extractMax(){
         //         return the maximum value in the heap
@@ -95,6 +128,9 @@ class MaxBinaryHeap{
                              if(this.values[leftChildIdx] > parentElement) swapIndex = leftChildIdx
                         }
                          if(rightChildIdx < length){
+                             /* if swap is not set assign right child to swap
+                             if swap is set and right child > left child index assign right child index
+                             */
                             if(
                             (swapIndex === null && this.values[rightChildIdx] > parentElement)||
                             (swapIndex !== null && this.values[rightChildIdx] > this.values[leftChildIdx])
@@ -118,3 +154,12 @@ class MaxBinaryHeap{
 }
 
 maxbinHeap = new MaxBinaryHeap() 
+
+/* 
+TIME COMPLEXITY
+
+Insertion O(logn)
+Removal O(logn)
+Search O(n)
+
+*/
