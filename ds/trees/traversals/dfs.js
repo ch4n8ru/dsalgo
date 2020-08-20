@@ -63,8 +63,6 @@ here first visit all the children and then visit its root
 function dfsPostOrder(tree){
     if(!tree.root) return null
     let visited = [];
-    let stack = [];
-    stack.push(tree.root);
     function traverse(root){
         if(root.left) traverse(root.left)
         if(root.right) traverse(root.right)
@@ -82,14 +80,11 @@ function dfsPostOrder(tree){
         6      15
      3    8      20
 
-preOrder = [3, 6, 8, 10, 15, 20] 
+InOrder = [3, 6, 8, 10, 15, 20] 
 */
-function dfsPreOrder(tree){
+function dfsInOrder(tree){
     if(!tree.root) return null
     let visited = [];
-    let stack = [];
-    stack.push(tree.root);
-
     function traverse(root){
         if(root.left) traverse(root.left)
         visited.push(root.val)      //visit step

@@ -4,22 +4,22 @@ Each vertex can be assigned a height based on how many jumps away the vertex is 
 */
 
 function bfsIterative(graph , vertex){
-    let stack = [];
+    let queue = [];
     let visited = {};
     let results = [];
     let adjacencyList = graph.adjacencyList;
     let currVertex;
-    stack.push(vertex);
+    queue.push(vertex);
     visited[vertex] = true
 
-    while(stack.length > 0){
-        console.log(stack)
-        currVertex = stack.shift();
+    while(queue.length > 0){
+        console.log(queue)
+        currVertex = queue.shift();
         results.push(currVertex)
        adjacencyList[currVertex].forEach(neighbour =>{
            if(!visited[neighbour]) {
                visited[neighbour] = true
-               stack.push(neighbour)
+               queue.push(neighbour)
                }
        })
     }
