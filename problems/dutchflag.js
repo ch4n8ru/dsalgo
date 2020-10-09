@@ -27,7 +27,6 @@ function sort(arr){
         }
 
         else{
-           
             swap(arr , end , mid);
             end--;
         }

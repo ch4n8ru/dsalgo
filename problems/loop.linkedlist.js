@@ -62,3 +62,23 @@ function detectLoop(head){
     return false
 
 }
+
+
+
+function removeLoop(head){
+    let meetingPt = detectLoop(head);
+    
+    let slowptr;
+    let fastptr;
+    if(meetingPt){
+        [slowptr , fastptr] = meetingPt;
+        slowptr = head;
+        while(slowptr.next != fastptr.next){
+            slowptr = slowptr.next;
+            fastptr =  fastptr.next;
+        }
+            fastptr.next = null
+        return head
+        console.log(slowptr , fastptr)
+
+    }
